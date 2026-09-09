@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #f5f0ff;
+    background-color: #120b1f;
+}
+
+.inicio {
+    min-height: 100vh;
+    display: flex;
+}
+
+.foto,
+.apresentacao {
+    width: 50%;
+}
+
+.foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0716;
+}
+
+.foto img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #b8923e;
+    box-shadow: 0 0 30px rgba(184, 146, 62, 0.3);
+    transition: 0.4s;
+}
+
+.foto img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(184, 146, 62, 0.55);
+}
+
+.apresentacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    background-color: #1b102b;
+}
+
+.apresentacao h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #d4af5f;
+}
+
+.apresentacao h2 {
+    color: #a98ac5;
+    margin-bottom: 20px;
+}
+
+.apresentacao p {
+    max-width: 500px;
+    line-height: 1.6;
+    color: #d8cfe2;
+}
+
+.habilidades {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #120b1f;
+}
+
+.habilidades h2,
+.projetos h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #d4af5f;
+}
+
+.lista-habilidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.lista-habilidades div {
+    padding: 30px;
+    background-color: #211432;
+    border: 1px solid #38244d;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #e5d8ef;
+    transition: 0.3s;
+}
+
+.lista-habilidades div:hover {
+    transform: translateY(-5px);
+    border-color: #b8923e;
+    color: #d4af5f;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.projetos {
+    padding: 80px 10%;
+    background-color: #1b102b;
+}
+
+.lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.projeto {
+    background-color: #211432;
+    border: 1px solid #38244d;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.projeto:hover {
+    transform: translateY(-8px);
+    border-color: #b8923e;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.projeto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.projeto:hover img {
+    filter: brightness(0.8);
+}
+
+.projeto h3 {
+    padding: 20px 20px 10px;
+    color: #d4af5f;
+}
+
+.projeto p {
+    padding: 0 20px 20px;
+    line-height: 1.5;
+    color: #d8cfe2;
+}
