@@ -131,6 +131,13 @@ main {
     margin-bottom: 18px;
 }
 
+.featured a {
+    color: #168ce2;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: 800px;
+}
+
 .product {
     height: 115px;
     display: flex;

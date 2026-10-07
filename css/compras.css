@@ -59,29 +59,47 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    background-color: #0e1729;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.inputText input {
+    background-color: transparent;
     width: 90%;
-    background-color: rgb(180, 253, 255);
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    justify-content: space-around;
-}
-
-.inputText input{
-    background-color: rgb(255, 255, 255);
-    width: 85%;
-    height: 5%;
-    font-size: 1.2rem;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: white;
     border: none;
-    transition: width 0.3s ease-in-out;
-    border-radius: 10px;
+    outline: none;
 }
 
-.inputText button{
-    background-color: rgb(163, 241, 255);
-    width: 4%;
-    height: 4%;
-    border-radius: 40%;
+.inputText input::placeholder {
+    color: #94a3b8;
 }
+
+.inputText button {
+    background-color: #168ce2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.inputText button:hover {
+    background-color: #106bb0;
+}
+
 
 .button {
     display: inline-block;
@@ -110,10 +128,21 @@ main {
     margin-bottom: 20px;
 }
 
+/* Adicione no final do seu CSS */
+.product.escondido {
+    display: none;
+}
+
 .section-title h2,
 .featured h2 {
     font-size: 17px;
     font-weight: 800;
+}
+
+.featured a {
+    color: #168ce2;
+    font-size: 12px;
+    text-decoration: none;
 }
 
 .section-title a {
