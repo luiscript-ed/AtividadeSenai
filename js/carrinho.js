@@ -1,6 +1,11 @@
 const buttonTERMAL = document.getElementById('TERMAL-WIND'); 
 const buttonMOCHILA = document.getElementById('MOCHILA'); 
 const buttonDORMIR = document.getElementById('SACO-DE-DORMIR'); 
+const buttonVoltar = document.getElementById('voltar');
+
+buttonVoltar.addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
 
 let valorDORMIR = localStorage.getItem('saco_dormir_selecionado') || '0';
 let valorMOCHILA = localStorage.getItem('mochila_selecionada') || '0';
