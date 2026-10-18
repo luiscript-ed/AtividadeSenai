@@ -1,0 +1,1 @@
+# gerenciamento de API, vou ver se fao só com request, pra rodar localmente numa porta

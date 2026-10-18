@@ -1,0 +1,8 @@
+[
+    {
+        "nome": "Produto 1",
+        "preco": 10.99,
+        "descricao": "Descrição do Produto 1",
+        "categoria": "Categoria A"
+    }
+]

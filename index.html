@@ -1,85 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PP Peak Point</title>
-    <link rel="stylesheet" href="css/peakPoint.css">
-</head>
+    <link rel="stylesheet" href="css/peakPoint.css" />
+  </head>
 
-<body>
-
+  <body>
     <header class="hero">
-        <nav class="nav">
-            <div class="menu">☰</div>
-            <div class="logo">PP PEAK POINT</div>
-            <div class="carrinho">🛒</div>
-        </nav>
+      <!--  comeco da nav -->
+      <nav class="nav">
+        <div class="menu">☰</div>
+        <div class="logo">PP PEAK POINT</div>
+        <div class="carrinho">🛒</div>
+      </nav>
 
-        <div class="hero-content">
-            <h1>CONQUISTE O SEU TOPO</h1>
-            <p>Equipamentos de alta performance para montanhismo</p>
-            <a href="#equipamentos" class="button">VER EQUIPAMENTOS →</a>
+      <div class="slider-container">
+        <!--  O video tá aqui  -->
+        <div class="slide active">
+          <video autoplay loop playsinline>
+            <source src="imagens/peakpoint.mp4" type="video/mp4" />
+          </video>
         </div>
+        <!--  A foto tá aqui  -->
+        <div class="slide">
+          <img src="imagens/ppoint.png" alt="Peak Point Banner" />
+        </div>
+
+        <!--  A 2° foto tá aqui  -->
+
+        <div class="slide">
+          <img src="imagens/topo.png" alt="Peak Point Banner" />
+        </div>
+
+        <button class="slider-btn prev-btn" id="prevBtn">&#10094;</button>
+        <button class="slider-btn next-btn" id="nextBtn">&#10095;</button>
+
+        <div class="slider-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+      </div>
     </header>
 
+    <!--  comeco da setion  -->
+    <section class="benefits">
+      <div class="benefit-item">
+        <div class="benefit-icon">🚚</div>
+        <h3>Frete Grátis</h3>
+        <p>em compras acima de <strong>R$ 349</strong></p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">💳</div>
+        <h3>Parcelamento</h3>
+        <p>em até <strong>10x sem juros</strong></p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📍</div>
+        <h3>Entrega para</h3>
+        <p>todo o Brasil</p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">🔄</div>
+        <h3>Primeira troca</h3>
+        <p>gratuita</p>
+      </div>
+    </section>
+
+    <!--  main  -->
     <main>
-        <section class="categories">
-            <div class="section-title">
-                <h2>CATEGORIAS EM DESTAQUE</h2>
-                <a href="#">Ver todas</a>
-            </div>
-
-            <div class="lista-categorias">
-                <div class="categoria">
-                    <img src="imagens/corda.jpg" alt="Cordas">
-                    <span> Cordas </span>
-                </div>
-
-                <div class="categoria">
-                    <img src="imagens/mosquetao.jpg" alt="Mosquetões">
-                    <span> Mosquetões </span>
-                </div>
-
-                <div class="categoria">
-                    <img src="imagens/capacete.webp" alt="Capacetes">
-                    <span> Capacetes </span>
-                </div>
-            </div>
-        </section>
-
-        <section class="featured" id="equipamentos">
-            <h2>DESTAQUES TÉCNICOS</h2>
-            <a href="#" id="buttonAba">Ver todas</a>
-
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=300&q=80" alt="Piquete Alpinist Pro">
-
-                <div class="product-info">
-                    <span>TERMAL WIND</span>
-                    <h3>Monóculo Master</h3>
-                    <strong>R$ 17.280,00</strong>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <h2>PP PEAK POINT</h2>
-        <p>Sua jornada começa onde o asfalto termina.</p>
-
-        <div class="footer-links">
-            <a >Sobre Nós</a>
-            <a >Contato</a>
-            <a >Termos de Uso</a>
+      <section class="categories">
+        <div class="section-title">
+          <h2>CATEGORIAS EM DESTAQUE</h2>
+          <a href="#">Ver todas</a>
         </div>
 
-        <small>© 2026 Peak Point</small>
+        <div class="lista-categorias">
+          <div class="categoria">
+            <img src="imagens/corda.jpg" alt="Cordas" />
+            <span> Cordas </span>
+          </div>
+
+          <div class="categoria">
+            <img src="imagens/mosquetao.jpg" alt="Mosquetões" />
+            <span> Mosquetões </span>
+          </div>
+
+          <div class="categoria">
+            <img src="imagens/capacete.webp" alt="Capacetes" />
+            <span> Capacetes </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- anoter section -->
+      <section class="featured" id="equipamentos">
+        <h2>DESTAQUES TÉCNICOS</h2>
+        <a href="#" id="buttonAba">Ver todas</a>
+
+        <div class="product">
+          <img
+            src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=300&q=80"
+            alt="Piquete Alpinist Pro"
+          />
+
+          <div class="product-info">
+            <span>TERMAL WIND</span>
+            <h3>Monóculo Master</h3>
+            <strong>R$ 17.280,00</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--  Orodape  -->
+    <footer>
+      <h2>PP PEAK POINT</h2>
+      <p>Sua jornada começa onde o asfalto termina.</p>
+
+      <div class="footer-links">
+        <a>Sobre Nós</a>
+        <a>Contato</a>
+        <a>Termos de Uso</a>
+      </div>
+
+      <small>© 2026 Peak Point</small>
     </footer>
 
-    <script src="js/compra.js"> </script>
-
-</body>
+    <script src="js/compra.js"></script>
+  </body>
 </html>
