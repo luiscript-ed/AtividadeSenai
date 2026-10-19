@@ -15,11 +15,12 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://luiscript-ed.github.io"
+        "https://luiscript-ed.github.io",
+        "http://localhost:5500"
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_headers=["*"],
 )
 
 #Funcoes auxiliares

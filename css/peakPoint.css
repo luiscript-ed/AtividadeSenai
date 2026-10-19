@@ -66,7 +66,7 @@ body {
   display: block;
 }
 
-.slider-btn {
+.slider-btn, .vai, .volta {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -85,8 +85,8 @@ body {
   color: white;
 }
 
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
+.volta { left: 20px; }
+.vai { right: 20px; }
 
 .slider-dots {
   position: absolute;
