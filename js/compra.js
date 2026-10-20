@@ -45,7 +45,7 @@ buttonAba.addEventListener('click', function() {
 
   
 async function pegarCategorias() {
-  const url = 'http://localhost:8000/categorias';
+  const url = 'http://127.0.0.1:8000/categorias';
 
   try {
     const resposta = await fetch(url);
@@ -64,7 +64,7 @@ async function pegarCategorias() {
 }
 
 async function pegarUltimasUnidades() {
-  const url = 'http://localhost:8000/produtos';
+  const url = 'http://127.0.0.1:8000/produtos';
 
   try {
     const resposta = await fetch(url);
@@ -82,40 +82,41 @@ async function pegarUltimasUnidades() {
   }
 }
 
+async function exibirCategorias() {
 
+  const listaCategorias = document.getElementById("lista-categorias");
+  const respostaDaApi = await pegarCategorias();
+  
+  const dados = respostaDaApi.categorias || []; 
 
-// exibir as categorias
-function exibirCategorias() {
-  listaCategorias = document.getElementById("listaCategorias");
-  dados = pegarCategorias();
   const htmlCategorias = dados.map(categoria => {
-
     return `
           <div class="categoria">
-            <img src="imagens/${categoria}.png" alt="${categoria}" />
+            <img src="imagens/categorias/${categoria}.png" alt="${categoria}" />
             <span> ${categoria} </span>
           </div>
     `;
   }).join('');
 
   listaCategorias.innerHTML = htmlCategorias;
-  }
+}
 
-// exibir as ultimas unidades, QUEIMA DE ESTOQUEE
-function exibirUltimasUnidades() {
+async function exibirUltimasUnidades() {
+
   const listaProdutos = document.getElementById("lista-produtos");
-  const dados = pegarUltimasUnidades(); 
+  const respostaApi = await pegarUltimasUnidades(); 
+  
+  const dados = respostaApi.produtos || respostaApi;
 
   const htmlUltimasUnidades = dados
-    .filter(produto => produto.estoque <= 20)
+    .filter(produto => produto.estoque <= 13)
     .map(produto => {
       return `
         <div class="product">
           <img
-            src="imagens/produtos/${produto.imagem}.png"
+            src="imagens/produtos/${produto.imagem}"
             alt="${produto.nome}"
           />
-
           <div class="product-info">
             <span>${produto.nome}</span>
             <h3>${produto.descricao}</h3>
@@ -125,7 +126,9 @@ function exibirUltimasUnidades() {
       `;
     }).join('');
     
-
   listaProdutos.innerHTML = htmlUltimasUnidades;
 }
 
+
+exibirCategorias();
+exibirUltimasUnidades();

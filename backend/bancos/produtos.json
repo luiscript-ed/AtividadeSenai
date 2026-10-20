@@ -13,7 +13,7 @@
         "preco": 899.90,
         "descricao": "Bota reforçada com isolamento térmico e estrutura compatível com atividades em ambientes de frio intenso.",
         "categoria": "calcados_vestuario",
-        "estoque": 12,
+        "estoque": 17,
         "imagem": "bota_alta_montanha_glacier.png"
     },
     {
@@ -77,7 +77,7 @@
         "preco": 749.90,
         "descricao": "Mochila para travessias e montanhismo, com fixações externas para transportar equipamentos técnicos.",
         "categoria": "acampamento_transporte",
-        "estoque": 14,
+        "estoque": 10,
         "imagem": "mochila_alpine_55l.png"
     },
     {
@@ -173,7 +173,7 @@
         "preco": 249.90,
         "descricao": "Lanterna de cabeça de alta potência para atividades noturnas, com modos de iluminação e intensidade ajustável.",
         "categoria": "seguranca_orientacao",
-        "estoque": 19,
+        "estoque": 12,
         "imagem": "lanterna_cabeca_pro_800.png"
     },
     {
@@ -201,20 +201,20 @@
         "imagem": "lanterna_recarregavel_explorer.png"
     },
     {
-        "nome": "GPS Satelital Navigator X",
+        "nome": "GPS Satelital Spot",
         "preco": 1899.90,
         "descricao": "Dispositivo de navegação por satélite para registrar percursos e auxiliar na orientação em regiões remotas.",
         "categoria": "seguranca_orientacao",
         "estoque": 6,
-        "imagem": "gps_satelital_navigator_x.png"
+        "imagem": "gps_satelital_spot.png"
     },
     {
-        "nome": "GPS Satelital Trek Mini",
+        "nome": "GPS Garmin InReach 2 Mini",
         "preco": 1299.90,
         "descricao": "GPS compacto para navegação em trilhas, com registro de pontos de referência e acompanhamento de rotas.",
         "categoria": "seguranca_orientacao",
         "estoque": 11,
-        "imagem": "gps_satelital_trek_mini.png"
+        "imagem": "gps_garmin_inreach_2_mini.png"
     },
     {
         "nome": "Bastões de Caminhada Trail Pair",
@@ -229,16 +229,8 @@
         "preco": 329.90,
         "descricao": "Par de bastões leves para trekking, com comprimento ajustável e empunhaduras ergonômicas.",
         "categoria": "seguranca_orientacao",
-        "estoque": 15,
+        "estoque": 13,
         "imagem": "bastoes_trekking_carbon.png"
-    },
-    {
-        "nome": "Bastão de Caminhada Reforçado",
-        "preco": 89.90,
-        "descricao": "Bastão individual com ajuste de altura para caminhadas em terrenos variados.",
-        "categoria": "seguranca_orientacao",
-        "estoque": 42,
-        "imagem": "bastao_caminhada_reforcado.png"
     },
     {
         "nome": "Capacete de Escalada Vertex",
@@ -253,7 +245,7 @@
         "preco": 379.90,
         "descricao": "Capacete ajustável para montanhismo técnico, projetado para proteger contra impactos conforme as especificações do fabricante.",
         "categoria": "escalada_tecnica",
-        "estoque": 12,
+        "estoque": 18,
         "imagem": "capacete_alta_montanha_summit.png"
     },
     {
@@ -301,7 +293,7 @@
         "preco": 499.90,
         "descricao": "Piolet para progressão em ambientes alpinos, com construção resistente e características adequadas ao modelo de uso.",
         "categoria": "escalada_tecnica",
-        "estoque": 10,
+        "estoque": 15,
         "imagem": "piolet_montanhismo_glacier.png"
     },
     {
@@ -325,7 +317,7 @@
         "preco": 399.90,
         "descricao": "Crampons compactos para atividades em terrenos nevados compatíveis com suas especificações e limitações de uso.",
         "categoria": "escalada_tecnica",
-        "estoque": 14,
+        "estoque": 18,
         "imagem": "crampons_compactos_glacier_lite.png"
     }
 ]

@@ -2,7 +2,6 @@
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
 
 import json
 
@@ -14,10 +13,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://luiscript-ed.github.io",
-        "http://localhost:5500"
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
@@ -26,18 +22,19 @@ app.add_middleware(
 #Funcoes auxiliares
 
 def pegarCategorias():
-    with open("bancos/produtos.json", "r") as file:
+    with open("backend/bancos/produtos.json", "r", encoding="utf-8") as file:
         categorias = json.load(file)
 
     categolias = []
     for i in range(len(categorias)):
         categoria = categorias[i]["categoria"]
-        categolias.append(categoria)
+        if categoria not in categolias:
+            categolias.append(categoria)
 
     return categolias
 
 def verificar_produto(produto_name, quantidade):
-    with open("bancos/produtos.json", "r") as file:
+    with open("backend/bancos/produtos.json", "r", encoding="utf-8") as file:
         produtos = json.load(file)
 
     for produto in range(len(produtos)):
@@ -50,84 +47,100 @@ def verificar_produto(produto_name, quantidade):
 #Funcoes GET da API
 
 @app.get("/")
-def get_root():
+def mensagemBoasVindas():
     return {"message": "Bem-vindo à API do PEAK POINT!"}
 
 @app.get("/categorias")
 def get_categorias():
-    categorias = pegarCategorias()
-    return {"categorias": categorias}
+    try:
+        categorias = pegarCategorias()
+        return {"categorias": categorias}
+    except Exception as e:
+        return {"message": f"Ocorreu um erro: {str(e)}"}
 
 @app.get("/produtos")
 def get_produtos():
-    with open("bancos/produtos.json", "r") as file:
-        produtos = json.load(file)
+    try:
+        with open("backend/bancos/produtos.json", "r", encoding="utf-8") as file:
+            produtos = json.load(file)
 
-    return {"produtos": produtos}
+        return {"produtos": produtos}
+    except Exception as e:
+        return {"message": f"Ocorreu um erro: {str(e)}"}
 
 
 #Funcoes POST da API
 
 @app.post("/login")
 def post_login(request: Request):
-    data = request.json()
-    email = data.get("email")
-    senha = data.get("senha")
+    try:
+        data = request.json()
+        email = data.get("email")
+        senha = data.get("senha")
 
-    with open("bancos/users.json", "r") as file:
-        usuarios = json.load(file)
+        with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
+            usuarios = json.load(file)
 
-    if email in usuarios and usuarios[email]["senha"] == senha:
-        return {"usuario": usuarios[email]}
-    else:
-        return {"message": "Usuário não encontrado ou senha incorreta"}
+        if email in usuarios and usuarios[email]["senha"] == senha:
+            return {"usuario": usuarios[email]}
+        else:
+            return {"message": "Usuário não encontrado ou senha incorreta"}
+    
+    except Exception as e:
+        return {"message": f"Ocorreu um erro: {str(e)}"}
 
 
 @app.post("/cadastro")
 def post_usuario(request: Request):
-    data = request.json()
-    email = data.get("email")
-    nome = data.get("nome")
-    senha = data.get("senha")
+    try:
+        data = request.json()
+        email = data.get("email")
+        nome = data.get("nome")
+        senha = data.get("senha")
+        with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
+            usuarios = json.load(file)
 
-    with open("bancos/users.json", "r") as file:
-        usuarios = json.load(file)
+        usuarios[email] = {
+            "nome": nome,
+            "senha": senha,
+            "points": 0
+        }
 
-    usuarios[email] = {
-        "nome": nome,
-        "senha": senha,
-        "points": 0
-    }
+        with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
+            json.dump(usuarios, file, indent=4)
 
-    with open("bancos/users.json", "w") as file:
-        json.dump(usuarios, file, indent=4)
-
-    return {"message": "Usuário criado com sucesso!"}
+        return {"message": "Usuário criado com sucesso!"}
+    
+    except Exception as e:
+        return {"message": f"Ocorreu um erro: {str(e)}"}
 
 @app.post("/comprar")
 def post_comprar(request: Request):
-    data = request.json()
-    email = data.get("email")
-    senha = data.get("senha")
-    produto_id = data.get("produto_id")
-    quantidade = data.get("quantidade")
+    try:
+        data = request.json()
+        email = data.get("email")
+        senha = data.get("senha")
+        produto_id = data.get("produto_id")
+        quantidade = data.get("quantidade")
+    
+        with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
+            usuarios = json.load(file)
 
-    with open("bancos/users.json", "r") as file:
-        usuarios = json.load(file)
+        if email in usuarios and usuarios[email]["senha"] == senha:
+            preco = verificar_produto(produto_id, quantidade)
 
-    if email in usuarios and usuarios[email]["senha"] == senha:
-       preco = verificar_produto(produto_id, quantidade)
+            if preco is not None and preco < usuarios[email]["points"]:
+                total = preco * quantidade
+                usuarios[email]["points"] -= total
 
-       if preco is not None and preco < usuarios[email]["points"]:
-            total = preco * quantidade
-            usuarios[email]["points"] -= total
+                with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
+                    json.dump(usuarios, file, indent=4)
 
-            with open("bancos/users.json", "w") as file:
-                json.dump(usuarios, file, indent=4)
+                return {"message": f"Compra realizada com sucesso! Total: {total}"}
+            else:
+                return {"message": "Produto não encontrado, estoque insuficiente ou pontos insuficientes"}
 
-            return {"message": f"Compra realizada com sucesso! Total: {total}"}
-       else:
-            return {"message": "Produto não encontrado, estoque insuficiente ou pontos insuficientes"}
-
-    else:
-        return {"message": "Usuário não encontrado ou senha incorreta"}
+        else:
+            return {"message": "Usuário não encontrado ou senha incorreta"}
+    except Exception as e:
+        return {"message": f"Ocorreu um erro: {str(e)}"}
