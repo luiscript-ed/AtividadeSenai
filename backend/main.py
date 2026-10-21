@@ -72,9 +72,9 @@ def get_produtos():
 #Funcoes POST da API
 
 @app.post("/login")
-def post_login(request: Request):
+async def post_login(request: Request):
     try:
-        data = request.json()
+        data = await request.json()
         email = data.get("email")
         senha = data.get("senha")
 
@@ -90,15 +90,23 @@ def post_login(request: Request):
         return {"message": f"Ocorreu um erro: {str(e)}"}
 
 
+
 @app.post("/cadastro")
-def post_usuario(request: Request):
+async def post_usuario(request: Request):
     try:
-        data = request.json()
+        data = await request.json()
         email = data.get("email")
         nome = data.get("nome")
         senha = data.get("senha")
+
+        if not email or not nome or not senha:
+            return {"message": "Preencha todos os campos"}
+
         with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
             usuarios = json.load(file)
+
+        if email in usuarios:
+            return {"message": "Este e-mail já está cadastrado"}
 
         usuarios[email] = {
             "nome": nome,
@@ -107,17 +115,18 @@ def post_usuario(request: Request):
         }
 
         with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
-            json.dump(usuarios, file, indent=4)
+            json.dump(usuarios, file, indent=4, ensure_ascii=False)
 
         return {"message": "Usuário criado com sucesso!"}
-    
+
     except Exception as e:
+        print("Erro no cadastro:", e)
         return {"message": f"Ocorreu um erro: {str(e)}"}
 
 @app.post("/comprar")
-def post_comprar(request: Request):
+async def post_comprar(request: Request):
     try:
-        data = request.json()
+        data = await request.json()
         email = data.get("email")
         senha = data.get("senha")
         produto_id = data.get("produto_id")
@@ -128,10 +137,11 @@ def post_comprar(request: Request):
 
         if email in usuarios and usuarios[email]["senha"] == senha:
             preco = verificar_produto(produto_id, quantidade)
-
-            if preco is not None and preco < usuarios[email]["points"]:
+            
+            if preco is not None:
                 total = preco * quantidade
-                usuarios[email]["points"] -= total
+                if total < usuarios[email]["points"]:
+                    usuarios[email]["points"] -= total
 
                 with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
                     json.dump(usuarios, file, indent=4)

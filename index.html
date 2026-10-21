@@ -10,12 +10,30 @@
   <body>
     <header class="hero">
       <!--  comeco da nav -->
-      <nav class="nav">
-        <div class="menu">☰</div>
-        <div class="logo">PP PEAK POINT</div>
-        <div class="carrinho">🛒</div>
+      <nav class="navLow">
+        <div class="logo">PEAK POINT</div>
       </nav>
 
+      <nav class="navHigh">
+        <div class="logo">PP</div>
+
+        <div class="menu-links">
+          <a href="http://127.0.0.1:5500/inicial.html">NOVIDADES</a>
+          <a href="http://127.0.0.1:5500/inicial.html">MOCHILAS</a>
+          <a href="http://127.0.0.1:5500/inicial.html">BOTAS E MEIAS</a>
+          <a href="http://127.0.0.1:5500/inicial.html">LANTERNAS E GPS´s</a>
+          <a href="http://127.0.0.1:5500/inicial.html">BASTÕES E PIOLET</a>
+          <a href="http://127.0.0.1:5500/inicial.html">BARRACAS</a>
+        </div>
+
+        <div class="icons">
+          <h2 id="name"> </h2>
+          <img src="imagens/ftuser.png" alt="Conta" onclick= "window.location.href='http://127.0.0.1:5500/aouth.html' ">
+          <img src="imagens/sacola.png" alt="Carrinho" onclick= "window.location.href='http://127.0.0.1:5500/inicial.html' ">
+        </div>
+      </nav>
+
+      <br> <br>
       <div class="slider-container">
         <!--  O video tá aqui  -->
         <div class="slide active">
@@ -73,7 +91,7 @@
       <section class="categories">
         <div class="section-title">
           <h2>CATEGORIAS EM DESTAQUE</h2>
-          <a href="#">Ver todas</a>
+          <a href="http://127.0.0.1:5500/inicial.html">Ver todas</a>
         </div>
 
         <div class="lista-categorias" id="lista-categorias">
@@ -84,10 +102,39 @@
       <!-- anoter section -->
       <section class="featured" id="equipamentos">
         <h2>ULTIMAS UNIDADES</h2>
-        <a href="#" id="buttonAba">Ver todas</a>
+        <a href="http://127.0.0.1:5500/inicial.html" id="buttonAba">Ver todas</a>
 
-        <div id="lista-produtos">
+        <div id="lista-produtos" class="lista-produtos">
           <!--  produtos vão vir do js -->
+        </div>
+      </section>
+
+      <section class="featured" id="equipamentos">
+        <h2>OQUE VOCÊ PRECISA PARA CONQUISTAR SEU TOPO?</h2>
+        <a href="http://127.0.0.1:5500/inicial.html" id="buttonAba">Ver todas</a>
+
+        <div class="lista-categorias"">
+
+          <div class="categoria">
+            <img src="imagens/produtos/mochila_everest_70l.png" alt="mochi" />
+            <span> MOCHILAS DE ALTA PERFORMANCE </span>
+          </div>
+
+          <div class="categoria">
+            <img src="imagens/produtos/barraca_familiar_trek_4.png" alt="BARRAC" />
+            <span> BARRACAS FAMILIARES SEGURAS E PRÁTICAS</span>
+          </div>
+
+          <div class="categoria">
+            <img src="imagens/produtos/saco_dormir_expedition_menos15.png" alt="mochi" />
+            <span> SACOS DE DORMIR ULTRA CONFORTÁVEIS </span>
+          </div>
+
+          <div class="categoria">
+            <img src="imagens/produtos/lanterna_tatica_compacta.png" alt="mochi" />
+            <span> LANTERNAS PARA SUA EXPEDIÇÃO </span>
+          </div>
+
         </div>
       </section>
     </main>
@@ -106,6 +153,10 @@
       <small>© 2026 Peak Point</small>
     </footer>
 
-    <script src="js/compra.js"></script>
+    <script src="js/index.js"></script>
+
+    <script>
+      
+    </script>
   </body>
 </html>

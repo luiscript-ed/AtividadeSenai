@@ -1,92 +1,107 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEAK POINT | Produto</title>
+    <link rel="stylesheet" href="css/compra.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="logo" href="../index.html">PEAK POINT</a>
+      <a class="back-link" href="../index.html">Voltar à loja</a>
+      <a class="cart-link" href="#painel-compra">Sua compra</a>
+    </nav>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PP Peak Point</title>
-    <link rel="stylesheet" href="css/compras.css">
+    <main class="page">
+      <div class="product-layout">
+        <section class="product-details">
+          <div class="product-image-wrap">
+            <img id="produtoImagem" src="" alt="Imagem do produto" />
+          </div>
 
-</head>
-
-<body>
-
-    <header class="hero">
-        <nav class="nav">
-            <div class="menu">☰</div>
-            <div class="logo">PP PEAK POINT</div>
-            <div class="carrinho">🛒</div>
-        </nav>
-
-        <div class="hero-content">
-
-            <form class="inputText" id="formBusca"> 
-                <input type="text" placeholder="Digite o nome do produto">
-                <button type="submit">🔍</button>
-            </form>
-
-            <p>Equipamentos de alta performance para montanhismo</p>
-            <a href="#equipamentos" class="button">VER EQUIPAMENTOS →</a>
-        </div>
-    </header>
-
-    <main>
-
-        <section class="featured" id="equipamentos">
-            <h2>DESTAQUES TÉCNICOS</h2>
-
-            <div class="product">
-                <img src="imagens/termico.webp" alt="Piquete Alpinist Pro">
-
-                <div class="product-info">
-                    <span>TERMAL WIND</span>
-                    <h3>Monóculo Master</h3>
-                    <strong>R$ 17.280,00</strong>
-                </div>
-
-                <button id="TERMAL-WIND">+</button>
+          <div class="product-copy">
+            <p class="category-label" id="produtoCategoria"></p>
+            <h1 id="produtoNome">Carregando produto...</h1>
+            <p class="product-description" id="produtoDescricao"></p>
+            <div class="detail-row">
+              <span>Estoque: </span>
+              <strong id="produtoEstoque"></strong>
             </div>
-
-            <div class="product">
-                <img src="imagens/mochila.webp" alt="Piquete Alpinist Pro">
-
-                <div class="product-info">
-                    <span>MOCHILA</span>
-                    <h3> GALAPAGOS </h3>
-                    <strong>R$ 999,00</strong>
-                </div>
-
-                <button id="MOCHILA">+</button>
+            <div class="detail-row">
+              <span>Categoria: </span>
+              <strong id="categoriaDetalhe"></strong>
             </div>
-
-            <div class="product">
-                <img src="imagens/termico.webp" alt="Piquete Alpinist Pro">
-
-                <div class="product-info">
-                    <span>SACO DE DORMIR</span>
-                    <h3>Sea To Summit</h3>
-                    <strong>R$ 4.280,00</strong>
-                </div>
-
-                <button id="SACO-DE-DORMIR">+</button>
-            </div>
-
+          </div>
         </section>
+
+        <aside class="purchase-panel" id="painel-compra">
+          <p class="panel-label">RESUMO DA COMPRA</p>
+          <h2 id="resumoNome">Seu produto</h2>
+
+          <div class="price-block">
+            <span>Preço</span>
+            <strong id="produtoPreco"></strong>
+          </div>
+
+          <div class="quantity-control">
+            <label for="quantidade">Quantidade</label>
+            <div class="quantity-buttons">
+              <button
+                type="button"
+                id="diminuirQuantidade"
+                aria-label="Diminuir quantidade"
+              >
+                −
+              </button>
+              <input
+                type="number"
+                id="quantidade"
+                value="1"
+                min="1"
+                step="1"
+                inputmode="numeric"
+              />
+              <button
+                type="button"
+                id="aumentarQuantidade"
+                aria-label="Aumentar quantidade"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="total-row">
+            <span>Subtotal</span>
+            <strong id="subtotal"></strong>
+          </div>
+
+          <button type="button" id="comprarBtn" class="buy-button">
+            Comprar agora
+          </button>
+          <p id="mensagem" role="status" aria-live="polite"></p>
+          <p class="purchase-note">
+            A compra será continuada na próxima etapa.
+          </p>
+        </aside>
+      </div>
     </main>
 
+    <!--  Orodape  -->
     <footer>
-        <h2>PP PEAK POINT</h2>
-        <p>Sua jornada começa onde o asfalto termina.</p>
+      <h2>PP PEAK POINT</h2>
+      <p>Sua jornada começa onde o asfalto termina</p>
 
-        <div class="footer-links">
-            <a href="#">Sobre Nós</a>
-            <a href="#">Contato</a>
-            <a href="#">Termos de Uso</a>
-        </div>
+      <div class="footer-links">
+        <a>Sobre Nós</a>
+        <a>Contato</a>
+        <a>Termos de Uso</a>
+      </div>
 
-        <small>© 2026 Peak Point</small>
+      <small>© 2026 Peak Point</small>
     </footer>
 
-    <script src="js/busca.js"> </script>
-</body>
+    <script src="js/compra.js"></script>
+  </body>
 </html>
