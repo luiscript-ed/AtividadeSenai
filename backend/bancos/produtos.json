@@ -76,7 +76,7 @@
         "preco": 749.9,
         "descricao": "Mochila para travessias e montanhismo, com fixações externas para transportar equipamentos técnicos.",
         "categoria": "acampamento_transporte",
-        "estoque": 4,
+        "estoque": 3,
         "imagem": "mochila_alpine_55l.png"
     },
     {
@@ -116,7 +116,7 @@
         "preco": 349.9,
         "descricao": "Saco de dormir com isolamento térmico para acampamentos em temperaturas baixas, conforme a classificação do fabricante.",
         "categoria": "acampamento_transporte",
-        "estoque": 20,
+        "estoque": 17,
         "imagem": "saco_dormir_polar_menos5.png"
     },
     {

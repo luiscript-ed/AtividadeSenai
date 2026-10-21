@@ -42,10 +42,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #174D8C;
-    color: #FFFFFF;
     border-radius: 10px;
     font-size: 25px;
+}
+
+.brand-icon img{
+    width: 150%;
+    height: 100%;
 }
 
 .brand-content {
@@ -80,25 +83,6 @@ body {
     color: #62748A;
     font-size: 16px;
     line-height: 1.8;
-}
-
-.mountain-icon {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 35px;
-}
-
-.mountain-icon svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.left-footer {
-    color: #66809D;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
 }
 
 .right {

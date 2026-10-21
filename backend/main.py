@@ -68,7 +68,6 @@ def get_produtos():
     except Exception as e:
         return {"message": f"Ocorreu um erro: {str(e)}"}
 
-
 #Funcoes POST da API
 
 @app.post("/login")
@@ -99,7 +98,7 @@ async def post_usuario(request: Request):
         email = data.get("email")
         nome = data.get("nome")
         senha = data.get("senha")
-        points = data.get("points", 0) # Corrigido: Captura os pontos enviados pelo formulário
+        points = data.get("points", 0)
 
         if not email or not nome or not senha:
             raise HTTPException(status_code=400, detail="Preencha todos os campos")
@@ -110,7 +109,6 @@ async def post_usuario(request: Request):
         if email in usuarios:
             raise HTTPException(status_code=400, detail="Este e-mail já está cadastrado")
 
-        # Corrigido: Agora salva com a pontuação inicial vinda do frontend (20000)
         usuarios[email] = {"nome": nome, "senha": senha, "points": points}
 
         with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
