@@ -1,16 +1,15 @@
-
 [
     {
         "nome": "Bota de Trekking Alpina",
-        "preco": 459.90,
+        "preco": 459.9,
         "descricao": "Bota de trekking com solado aderente, suporte para os tornozelos e material resistente para trilhas exigentes.",
         "categoria": "calcados_vestuario",
-        "estoque": 25,
+        "estoque": 20,
         "imagem": "bota_trekking_alpina.png"
     },
     {
         "nome": "Bota de Alta Montanha Glacier",
-        "preco": 899.90,
+        "preco": 899.9,
         "descricao": "Bota reforçada com isolamento térmico e estrutura compatível com atividades em ambientes de frio intenso.",
         "categoria": "calcados_vestuario",
         "estoque": 17,
@@ -18,7 +17,7 @@
     },
     {
         "nome": "Bota Leve de Caminhada Trail",
-        "preco": 329.90,
+        "preco": 329.9,
         "descricao": "Bota leve e confortável para caminhadas em trilhas, terrenos irregulares e percursos de longa duração.",
         "categoria": "calcados_vestuario",
         "estoque": 30,
@@ -26,7 +25,7 @@
     },
     {
         "nome": "Meia Técnica Trekking Dry",
-        "preco": 49.90,
+        "preco": 49.9,
         "descricao": "Meia de trekking com tecido respirável, acolchoamento nas áreas de atrito e controle de umidade.",
         "categoria": "calcados_vestuario",
         "estoque": 80,
@@ -34,7 +33,7 @@
     },
     {
         "nome": "Meia Térmica Alpine",
-        "preco": 69.90,
+        "preco": 69.9,
         "descricao": "Meia térmica para caminhadas em regiões frias, desenvolvida para oferecer conforto durante o uso prolongado.",
         "categoria": "calcados_vestuario",
         "estoque": 55,
@@ -42,7 +41,7 @@
     },
     {
         "nome": "Meia de Trekking de Cano Alto",
-        "preco": 39.90,
+        "preco": 39.9,
         "descricao": "Meia de cano alto com reforço no calcanhar e na ponta dos pés para uso com botas de montanhismo.",
         "categoria": "calcados_vestuario",
         "estoque": 65,
@@ -50,7 +49,7 @@
     },
     {
         "nome": "Mochila de Montanha Summit 45L",
-        "preco": 589.90,
+        "preco": 589.9,
         "descricao": "Mochila de 45 litros com compartimentos organizadores, barrigueira ajustável e suporte para equipamentos.",
         "categoria": "acampamento_transporte",
         "estoque": 18,
@@ -58,7 +57,7 @@
     },
     {
         "nome": "Mochila de Expedição Everest 70L",
-        "preco": 899.90,
+        "preco": 899.9,
         "descricao": "Mochila de grande capacidade para expedições, com estrutura reforçada e ajustes para distribuir o peso.",
         "categoria": "acampamento_transporte",
         "estoque": 10,
@@ -66,7 +65,7 @@
     },
     {
         "nome": "Mochila Compacta Trail 25L",
-        "preco": 299.90,
+        "preco": 299.9,
         "descricao": "Mochila compacta para caminhadas de um dia, com bolsos laterais e compartimentos para acessórios.",
         "categoria": "acampamento_transporte",
         "estoque": 32,
@@ -74,15 +73,15 @@
     },
     {
         "nome": "Mochila Técnica Alpine 55L",
-        "preco": 749.90,
+        "preco": 749.9,
         "descricao": "Mochila para travessias e montanhismo, com fixações externas para transportar equipamentos técnicos.",
         "categoria": "acampamento_transporte",
-        "estoque": 10,
+        "estoque": 4,
         "imagem": "mochila_alpine_55l.png"
     },
     {
         "nome": "Barraca de Montanha Duo",
-        "preco": 649.90,
+        "preco": 649.9,
         "descricao": "Barraca para duas pessoas com estrutura leve, montagem prática e proteção contra chuva moderada.",
         "categoria": "acampamento_transporte",
         "estoque": 16,
@@ -90,7 +89,7 @@
     },
     {
         "nome": "Barraca de Expedição Storm",
-        "preco": 1299.90,
+        "preco": 1299.9,
         "descricao": "Barraca reforçada para expedições, com estrutura estável e materiais projetados para condições climáticas adversas.",
         "categoria": "acampamento_transporte",
         "estoque": 7,
@@ -98,7 +97,7 @@
     },
     {
         "nome": "Barraca Compacta Solo",
-        "preco": 429.90,
+        "preco": 429.9,
         "descricao": "Barraca individual compacta para trilhas, com baixo volume de transporte e montagem simplificada.",
         "categoria": "acampamento_transporte",
         "estoque": 22,
@@ -106,7 +105,7 @@
     },
     {
         "nome": "Barraca Familiar Trek 4",
-        "preco": 999.90,
+        "preco": 999.9,
         "descricao": "Barraca espaçosa para até quatro pessoas, indicada para acampamentos em áreas apropriadas.",
         "categoria": "acampamento_transporte",
         "estoque": 9,
@@ -114,7 +113,7 @@
     },
     {
         "nome": "Saco de Dormir Polar -5°C",
-        "preco": 349.90,
+        "preco": 349.9,
         "descricao": "Saco de dormir com isolamento térmico para acampamentos em temperaturas baixas, conforme a classificação do fabricante.",
         "categoria": "acampamento_transporte",
         "estoque": 20,
@@ -122,7 +121,7 @@
     },
     {
         "nome": "Saco de Dormir Expedition -15°C",
-        "preco": 699.90,
+        "preco": 699.9,
         "descricao": "Saco de dormir para expedições em ambientes frios, com isolamento reforçado e formato que ajuda a conservar o calor.",
         "categoria": "acampamento_transporte",
         "estoque": 8,
@@ -130,7 +129,7 @@
     },
     {
         "nome": "Saco de Dormir Compact Lite",
-        "preco": 259.90,
+        "preco": 259.9,
         "descricao": "Saco de dormir leve e compacto para caminhadas e acampamentos em condições amenas.",
         "categoria": "acampamento_transporte",
         "estoque": 28,
@@ -138,7 +137,7 @@
     },
     {
         "nome": "Colchonete de Camping Isolante",
-        "preco": 179.90,
+        "preco": 179.9,
         "descricao": "Colchonete dobrável que oferece isolamento em relação ao solo e maior conforto durante o descanso.",
         "categoria": "acampamento_transporte",
         "estoque": 35,
@@ -146,7 +145,7 @@
     },
     {
         "nome": "Kit de Utensílios de Camping",
-        "preco": 119.90,
+        "preco": 119.9,
         "descricao": "Conjunto compacto de utensílios reutilizáveis para refeições durante acampamentos e travessias.",
         "categoria": "acampamento_transporte",
         "estoque": 40,
@@ -154,7 +153,7 @@
     },
     {
         "nome": "Fogareiro Portátil Trek",
-        "preco": 159.90,
+        "preco": 159.9,
         "descricao": "Fogareiro compacto para preparo de refeições em acampamentos, compatível com cartuchos especificados pelo fabricante.",
         "categoria": "acampamento_transporte",
         "estoque": 24,
@@ -162,7 +161,7 @@
     },
     {
         "nome": "Lanterna de Cabeça Trail 300",
-        "preco": 99.90,
+        "preco": 99.9,
         "descricao": "Lanterna de cabeça com ajuste de inclinação e diferentes modos de iluminação para caminhadas noturnas.",
         "categoria": "seguranca_orientacao",
         "estoque": 45,
@@ -170,7 +169,7 @@
     },
     {
         "nome": "Lanterna de Cabeça Pro 800",
-        "preco": 249.90,
+        "preco": 249.9,
         "descricao": "Lanterna de cabeça de alta potência para atividades noturnas, com modos de iluminação e intensidade ajustável.",
         "categoria": "seguranca_orientacao",
         "estoque": 12,
@@ -178,7 +177,7 @@
     },
     {
         "nome": "Lanterna Tática Compacta",
-        "preco": 139.90,
+        "preco": 139.9,
         "descricao": "Lanterna portátil resistente para uso em acampamentos e situações de baixa luminosidade.",
         "categoria": "seguranca_orientacao",
         "estoque": 33,
@@ -186,7 +185,7 @@
     },
     {
         "nome": "Lanterna de Acampamento Lumina",
-        "preco": 89.90,
+        "preco": 89.9,
         "descricao": "Lanterna de iluminação difusa para barracas e áreas de convivência em acampamentos.",
         "categoria": "seguranca_orientacao",
         "estoque": 38,
@@ -194,7 +193,7 @@
     },
     {
         "nome": "Lanterna Recarregável Explorer",
-        "preco": 179.90,
+        "preco": 179.9,
         "descricao": "Lanterna recarregável com diferentes níveis de brilho e formato compacto para transporte na mochila.",
         "categoria": "seguranca_orientacao",
         "estoque": 26,
@@ -202,7 +201,7 @@
     },
     {
         "nome": "GPS Satelital Spot",
-        "preco": 1899.90,
+        "preco": 1899.9,
         "descricao": "Dispositivo de navegação por satélite para registrar percursos e auxiliar na orientação em regiões remotas.",
         "categoria": "seguranca_orientacao",
         "estoque": 6,
@@ -210,7 +209,7 @@
     },
     {
         "nome": "GPS Garmin InReach 2 Mini",
-        "preco": 1299.90,
+        "preco": 1299.9,
         "descricao": "GPS compacto para navegação em trilhas, com registro de pontos de referência e acompanhamento de rotas.",
         "categoria": "seguranca_orientacao",
         "estoque": 11,
@@ -218,7 +217,7 @@
     },
     {
         "nome": "Bastões de Caminhada Trail Pair",
-        "preco": 149.90,
+        "preco": 149.9,
         "descricao": "Par de bastões ajustáveis para auxiliar no equilíbrio e na distribuição do esforço durante caminhadas.",
         "categoria": "seguranca_orientacao",
         "estoque": 30,
@@ -226,7 +225,7 @@
     },
     {
         "nome": "Bastões de Trekking Carbon",
-        "preco": 329.90,
+        "preco": 329.9,
         "descricao": "Par de bastões leves para trekking, com comprimento ajustável e empunhaduras ergonômicas.",
         "categoria": "seguranca_orientacao",
         "estoque": 13,
@@ -234,7 +233,7 @@
     },
     {
         "nome": "Capacete de Escalada Vertex",
-        "preco": 299.90,
+        "preco": 299.9,
         "descricao": "Capacete leve para escalada, com sistema de ajuste e ventilação para maior conforto durante a atividade.",
         "categoria": "escalada_tecnica",
         "estoque": 18,
@@ -242,7 +241,7 @@
     },
     {
         "nome": "Capacete de Alta Montanha Summit",
-        "preco": 379.90,
+        "preco": 379.9,
         "descricao": "Capacete ajustável para montanhismo técnico, projetado para proteger contra impactos conforme as especificações do fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 18,
@@ -250,7 +249,7 @@
     },
     {
         "nome": "Corda Dinâmica Alpine 60m",
-        "preco": 899.90,
+        "preco": 899.9,
         "descricao": "Corda dinâmica de 60 metros destinada à escalada, com características técnicas definidas pelo fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 9,
@@ -258,7 +257,7 @@
     },
     {
         "nome": "Corda Dinâmica Rock 70m",
-        "preco": 1099.90,
+        "preco": 1099.9,
         "descricao": "Corda dinâmica de 70 metros para escalada esportiva e vias longas, conforme as condições de uso especificadas pelo fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 7,
@@ -266,7 +265,7 @@
     },
     {
         "nome": "Mosquetão de Alumínio Lock",
-        "preco": 89.90,
+        "preco": 89.9,
         "descricao": "Mosquetão com trava de segurança para sistemas de escalada compatíveis com suas especificações técnicas.",
         "categoria": "escalada_tecnica",
         "estoque": 35,
@@ -274,7 +273,7 @@
     },
     {
         "nome": "Mosquetão HMS Pro",
-        "preco": 129.90,
+        "preco": 129.9,
         "descricao": "Mosquetão de formato HMS com trava, desenvolvido para aplicações de escalada previstas pelo fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 22,
@@ -282,7 +281,7 @@
     },
     {
         "nome": "Kit de Mosquetões Quick Set",
-        "preco": 219.90,
+        "preco": 219.9,
         "descricao": "Conjunto de mosquetões para organização de equipamentos e montagem de sistemas de escalada compatíveis.",
         "categoria": "escalada_tecnica",
         "estoque": 16,
@@ -290,7 +289,7 @@
     },
     {
         "nome": "Piolet de Montanhismo Glacier",
-        "preco": 499.90,
+        "preco": 499.9,
         "descricao": "Piolet para progressão em ambientes alpinos, com construção resistente e características adequadas ao modelo de uso.",
         "categoria": "escalada_tecnica",
         "estoque": 15,
@@ -298,7 +297,7 @@
     },
     {
         "nome": "Piolet Técnico Ice Pro",
-        "preco": 749.90,
+        "preco": 749.9,
         "descricao": "Piolet técnico destinado a atividades específicas em gelo e terrenos alpinos, conforme a aplicação indicada pelo fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 6,
@@ -306,7 +305,7 @@
     },
     {
         "nome": "Crampons de Aço Alpine 12",
-        "preco": 599.90,
+        "preco": 599.9,
         "descricao": "Crampons de 12 pontas para progressão em neve e gelo, compatíveis com botas e condições de uso especificadas pelo fabricante.",
         "categoria": "escalada_tecnica",
         "estoque": 11,
@@ -314,7 +313,7 @@
     },
     {
         "nome": "Crampons Compactos Glacier Lite",
-        "preco": 399.90,
+        "preco": 399.9,
         "descricao": "Crampons compactos para atividades em terrenos nevados compatíveis com suas especificações e limitações de uso.",
         "categoria": "escalada_tecnica",
         "estoque": 18,

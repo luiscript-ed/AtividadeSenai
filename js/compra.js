@@ -1,12 +1,15 @@
 const produtoImagem = document.getElementById("produtoImagem");
 const produtoNome = document.getElementById("produtoNome");
 const produtoCategoria = document.getElementById("produtoCategoria");
+
 const produtoDescricao = document.getElementById("produtoDescricao");
 const produtoEstoque = document.getElementById("produtoEstoque");
 const produtoPreco = document.getElementById("produtoPreco");
+
 const categoriaDetalhe = document.getElementById("categoriaDetalhe");
 const resumoNome = document.getElementById("resumoNome");
 const quantidadeInput = document.getElementById("quantidade");
+
 const subtotal = document.getElementById("subtotal");
 const comprarBtn = document.getElementById("comprarBtn");
 const mensagem = document.getElementById("mensagem");
@@ -114,21 +117,68 @@ function mostrarProduto() {
     atualizarSubtotal();
 }
 
-async function pegarCredenciais() {
-    email = localStorage.getItem("email") || "false";
-    senha = localStorage.getItem("senha") || "false";
+const email = localStorage.getItem("email") || "false";
+const senha = localStorage.getItem("senha") || "false";
+const pontos = localStorage.getItem("pontos") || "false";
+
+const emailLabel = document.getElementById("usuario");
+const pontosLabel = document.getElementById("pontos");
+
+async function pegarDados() {
+    const dados = {
+        email: email,
+        senha: senha
+    };
+
+    try {
+        const resposta = await fetch("http://127.0.0.1:8000/login", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        });
+
+        const resultado = await resposta.json();
+
+        if (!resposta.ok) {
+            alert(resultado.detail || 'Erro ao fazer login');
+            return;
+        }
+
+        localStorage.setItem('nome', resultado.usuario.nome || '');
+        localStorage.setItem('email', dados.email);
+        localStorage.setItem('pontos', resultado.usuario.points || 0);
+        localStorage.setItem('senha', dados.senha);
+
+    } catch (error) {
+        console.error('Erro ao conectar ao servidor:', error);
+    };
+}
+
+pegarDados();
+
+if (email !== "false" && senha !== "false") {
+    emailLabel.innerText = email;
+    pontosLabel.innerText = localStorage.getItem("pontos") || "0";
+} else {
+    emailLabel.innerText = "Não logado";
+    pontosLabel.innerText = "0";
+}
+
+async function pegarCredenciais(nomeProduto, quantidadeCompra) {
+
 
     if (email === "false" || senha === "false") {
         mensagem.innerText = "Você precisa estar logado para realizar a compra.";
         return;
     }
     
-    dados = {
+    const dados = {
         email: email,
         senha: senha,
-        produto_id: produto.nome,
-        quantidade: quantidade
-    }
+        produto_name: nomeProduto, 
+        quantidade: quantidadeCompra 
+    };
+
     try {
         const resposta = await fetch("http://127.0.0.1:8000/comprar", {
             method: "POST",
@@ -141,13 +191,18 @@ async function pegarCredenciais() {
         const resultado = await resposta.json();
 
         if (!resposta.ok) {
-            console.error("Erro ao realizar o cadastro:", resultado.detail || resultado.mensagem || "Não foi possível realizar o cadastro.");
+            console.error("Erro na compra:", resultado.message || "Não foi possível realizar a compra.");
+            mensagem.innerText = resultado.message || "Erro ao processar compra.";
             return;
         }
 
-        mensagem.innerText = resultado.mensagem || "Compra realizada com sucesso!";
+        mensagem.innerText = resultado.message || "Compra realizada com sucesso!";
+
+        iniciarCompra();
+
     } catch (error) {
         console.error("Erro ao conectar ao servidor:", error);
+        mensagem.innerText = "Erro ao conectar com o servidor.";
     }
 }
 

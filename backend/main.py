@@ -1,6 +1,6 @@
 # gerenciamento de API, vou ver se fao só com request, pra rodar localmente numa porta
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 import json
@@ -77,19 +77,20 @@ async def post_login(request: Request):
         data = await request.json()
         email = data.get("email")
         senha = data.get("senha")
-
+        
         with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
             usuarios = json.load(file)
-
+            
         if email in usuarios and usuarios[email]["senha"] == senha:
+            # Retorna a estrutura esperada pelo JS
             return {"usuario": usuarios[email]}
         else:
-            return {"message": "Usuário não encontrado ou senha incorreta"}
-    
+            # Corrigido: Retorna erro 401 (Não autorizado) em vez de 200
+            raise HTTPException(status_code=401, detail="Usuário não encontrado ou senha incorreta")
+    except HTTPException as http_err:
+        raise http_err
     except Exception as e:
-        return {"message": f"Ocorreu um erro: {str(e)}"}
-
-
+        raise HTTPException(status_code=500, detail=f"Ocorreu um erro: {str(e)}")
 
 @app.post("/cadastro")
 async def post_usuario(request: Request):
@@ -98,59 +99,75 @@ async def post_usuario(request: Request):
         email = data.get("email")
         nome = data.get("nome")
         senha = data.get("senha")
+        points = data.get("points", 0) # Corrigido: Captura os pontos enviados pelo formulário
 
         if not email or not nome or not senha:
-            return {"message": "Preencha todos os campos"}
+            raise HTTPException(status_code=400, detail="Preencha todos os campos")
 
         with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
             usuarios = json.load(file)
 
         if email in usuarios:
-            return {"message": "Este e-mail já está cadastrado"}
+            raise HTTPException(status_code=400, detail="Este e-mail já está cadastrado")
 
-        usuarios[email] = {
-            "nome": nome,
-            "senha": senha,
-            "points": 0
-        }
+        # Corrigido: Agora salva com a pontuação inicial vinda do frontend (20000)
+        usuarios[email] = {"nome": nome, "senha": senha, "points": points}
 
         with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
             json.dump(usuarios, file, indent=4, ensure_ascii=False)
 
         return {"message": "Usuário criado com sucesso!"}
-
+    except HTTPException as http_err:
+        raise http_err
     except Exception as e:
-        print("Erro no cadastro:", e)
-        return {"message": f"Ocorreu um erro: {str(e)}"}
-
+        raise HTTPException(status_code=500, detail=f"Ocorreu um erro: {str(e)}")
+    
 @app.post("/comprar")
 async def post_comprar(request: Request):
     try:
         data = await request.json()
         email = data.get("email")
         senha = data.get("senha")
-        produto_id = data.get("produto_id")
-        quantidade = data.get("quantidade")
-    
+        produto_name = data.get("produto_name")
+        quantidade = int(data.get("quantidade", 0))
+
         with open("backend/bancos/users.json", "r", encoding="utf-8") as file:
             usuarios = json.load(file)
 
         if email in usuarios and usuarios[email]["senha"] == senha:
-            preco = verificar_produto(produto_id, quantidade)
             
-            if preco is not None:
-                total = preco * quantidade
-                if total < usuarios[email]["points"]:
-                    usuarios[email]["points"] -= total
+            caminho_produtos = "backend/bancos/produtos.json" 
+            with open(caminho_produtos, "r", encoding="utf-8") as file:
+                produtos = json.load(file)
 
-                with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
-                    json.dump(usuarios, file, indent=4)
+            produto_index = next((x for x in range(len(produtos)) if produtos[x]["nome"] == produto_name), None)
 
-                return {"message": f"Compra realizada com sucesso! Total: {total}"}
+            if produto_index is not None:
+                produto = produtos[produto_index]
+                if produto["estoque"] >= quantidade:
+                    preco = produto["preco"]
+                    total = preco * quantidade
+
+                    if usuarios[email]["points"] >= total:
+                        
+                        usuarios[email]["points"] -= total
+                        produtos[produto_index]["estoque"] -= quantidade 
+
+                        with open("backend/bancos/users.json", "w", encoding="utf-8") as file:
+                            json.dump(usuarios, file, indent=4)
+
+                        with open(caminho_produtos, "w", encoding="utf-8") as file:
+                            json.dump(produtos, file, indent=4, ensure_ascii=False)
+
+                        return {"message": f"Compra realizada com sucesso! Total: {total:.2f}"}
+                    else:
+                        return {"message": "Pontos insuficientes"}
+                else:
+                    return {"message": "Estoque insuficiente"}
             else:
-                return {"message": "Produto não encontrado, estoque insuficiente ou pontos insuficientes"}
-
+                return {"message": "Produto não encontrado"}
         else:
             return {"message": "Usuário não encontrado ou senha incorreta"}
+
     except Exception as e:
         return {"message": f"Ocorreu um erro: {str(e)}"}

@@ -3,5 +3,10 @@
         "nome": "Administrador",
         "senha": "123456",
         "points": 999
+    },
+    "dudu@gmail.com": {
+        "nome": "luiz",
+        "senha": "123456",
+        "points": 993200.0999999997
     }
 }

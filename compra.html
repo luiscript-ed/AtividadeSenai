@@ -10,7 +10,8 @@
     <nav class="navbar">
       <a class="logo" href="../index.html">PEAK POINT</a>
       <a class="back-link" href="../index.html">Voltar à loja</a>
-      <a class="cart-link" href="#painel-compra">Sua compra</a>
+      <strong class="points-label" id="pontos"> pontos </strong>
+      <strong class="points-label" id="usuario"> Nome </strong>
     </nav>
 
     <main class="page">
@@ -80,10 +81,14 @@
           <button type="button" id="comprarBtn" class="buy-button">
             Comprar agora
           </button>
-          <p id="mensagem" role="status" aria-live="polite"></p>
           <p class="purchase-note">
             A compra será continuada na próxima etapa.
           </p>
+        </aside>
+
+        <aside class="purchase-panel" id="painel-compra">
+          <p class="panel-label">STATUS DA COMPRA</p>
+          <p id="mensagem" role="status" aria-live="polite"></p>
         </aside>
       </div>
     </main>
